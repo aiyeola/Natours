@@ -1,0 +1,46 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+// The order in which the media queries are called matters
+// the larger ones before the smaller ones (Desktop-First Design)
+html {
+  // This defines what 1rem is
+  font-size: 62.5%; // 1rem = 10px 10px/16px
+
+  // @include respond(phone) {
+  //   font-size: 50%; // 1rem = 8px, 8px/16px
+  // }
+
+  @include respond(tab-land) {
+    // is width < 1200px ?
+    font-size: 56.25%; // 1rem = 9px, 9px/16px
+  }
+
+  @include respond(tab-port) {
+    // is width < 900px ?
+    font-size: 50%; // 1rem = 8px, 8px/16px
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12px, 12px/16px
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
